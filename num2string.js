@@ -82,6 +82,11 @@ function main(n) {
 	}
 }
 
+/**
+ * Recursively breaks down a string from 0-999 into its corresponding words
+ * @param {string} num 
+ * @return {string}
+ */
 function makeWords(num) {
    if(num<20) {
        return numNames[num];
@@ -96,6 +101,11 @@ function makeWords(num) {
    }
 }
 
+/**
+ * Returns true if the input string contains "-", false otherwise.
+ * @param {string} num String of the input 
+ * @return {boolean} 
+ */
 function isNegative(num) {
 	if(num.includes("-")) {
 		return true;
@@ -105,6 +115,11 @@ function isNegative(num) {
 	}
 }
 
+/**
+ * Determines the cents value from the dollar string.
+ * @param {string} number 
+ * @return {string} cents
+ */
 function getCents(number) {
 	let cents;
 	if(number.indexOf(".") === -1) {
@@ -119,6 +134,12 @@ function getCents(number) {
 	return cents;
 }
 
+/**
+ * Adds the cents and dollars to end and joins array of words together
+ * and adds spaces between words. Prints to console.
+ * @param {array} dollar String array of the words 
+ * @param {string} cents String representation of the cents value
+ */
 function printMoney(dollar, cents) {
 	if(parseInt(cents)>0) {
 		dollar.push("and " + cents + "/100");
@@ -133,6 +154,11 @@ function printMoney(dollar, cents) {
 	console.log(dollar.join(" "));
 }
 
+/**
+ * Checks if number is within the Max Integer value
+ * @param {string} number
+ * @return {Boolean}
+ */
 function isValid(number) {
 	if(parseInt(number) > Number.MAX_SAFE_INTEGER) {
 	console.log("Please enter a value less than 9,007,199,254,740,991");
