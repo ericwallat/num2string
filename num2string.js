@@ -48,36 +48,11 @@ function main(n) {
 
 		const dollars = Math.floor(parseFloat(number)).toString();
 		let cents = getCents(number);
-
 		const trips = Math.ceil(dollars.length / 3);
-		let dollar = [];
-
 		if(negative) {
 			dollar.push("Negative");
 		}
-
-		let startIdx = 0;
-		let endIdx = 0;
-		let j = 0;
-		let i = trips;
-
-		for(i; i > 0; i--) {
-	
-			if(dollars.length % 3 === 0) {
-				endIdx = 3 + 3*j;
-			}
-			else {
-				endIdx = (dollars.length % 3) + 3*j
-			}
-			
-			j++;
-			dollar.push(makeWords(parseInt(dollars.substring(startIdx,endIdx))));
-			
-			if(i>1) {
-				dollar.push(placeNames[i])
-			}
-			startIdx = endIdx;
-		}
+		const dollar = convert(trips, dollars);
 		printMoney(dollar, cents);
 	}
 }
@@ -167,4 +142,44 @@ function isValid(number) {
 	return true;
 }
 
-main("$1.01")
+/**
+ * Calculates the end index of the current triplet
+ * @param {string} dollars
+ * @param {Number} j
+ * @return {Number}
+ */
+function calcEnd(dollars, j) {
+	if(dollars.length % 3 === 0) {
+		endIdx = 3 + 3*j;
+	}
+	else {
+		endIdx = (dollars.length % 3) + 3*j
+	}
+	return endIdx;
+}
+
+/**
+ * Iterates through the inputted number to create string representations
+ * @param {Number} trips
+ * @param {string} dollars
+ * @return {Array}
+ */
+function convert(trips,dollars) {
+	let startIdx = 0, endIdx = 0, j = 0;
+	let i = trips;
+	let dollar = [];
+	for(i; i > 0; i--) {
+		
+		endIdx = calcEnd(dollars, j);
+		j++;
+		dollar.push(makeWords(parseInt(dollars.substring(startIdx,endIdx))));
+				
+		if(i>1) {
+			dollar.push(placeNames[i])
+		}
+		startIdx = endIdx;
+	}
+	return dollar;
+}
+
+main("$234482.23")
