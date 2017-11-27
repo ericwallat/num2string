@@ -126,7 +126,7 @@ function printMoney(dollar, cents) {
 	else {
 		dollar.push("dollars");
 	}
-	console.log(dollar.join(" "));
+	console.log(dollar.join(" ").replace(/  /gi, " "));
 }
 
 /**
@@ -182,4 +182,4 @@ function convert(trips,dollars) {
 	return dollar;
 }
 
-main("$234482.23")
+main("$100237.83")
