@@ -136,8 +136,12 @@ function printMoney(dollar, cents) {
  */
 function isValid(number) {
 	if(parseInt(number) > Number.MAX_SAFE_INTEGER) {
-	console.log("Please enter a value less than 9,007,199,254,740,991");
-	return false;
+		console.log("Please enter a value less than 9,007,199,254,740,991");
+		return false;
+	}
+	else if(isNaN(parseInt(number))){
+		console.log("Please enter a number");
+		return false;
 	}
 	return true;
 }
@@ -218,5 +222,5 @@ main("$1564985398.88")
 console.log("$1")
 main("$1")
 
-console.log("$156")
-main("$156")
+console.log("string")
+main("string")
