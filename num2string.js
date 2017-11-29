@@ -9,7 +9,7 @@ const tensNames = ["",
                 "eighty",
                 "ninety"];
 
-const numNames = ["",
+const numNames = ["zero",
                 "one",
                 "two",
                 "three",
@@ -182,4 +182,41 @@ function convert(trips,dollars) {
 	return dollar;
 }
 
-main("$100237.83")
+console.log("$0.76")
+main("$0.76")
+
+console.log("$2.21")
+main("$2.21")
+
+console.log("$42.99")
+main("$42.99")
+
+console.log("$295.1")
+main("$295.1")
+
+console.log("$5322.52")
+main("$5322.52")
+
+console.log("$84922.93")
+main("$84922.93")
+
+console.log("$366367.29")
+main("$366367.29")
+
+console.log("$7775873.86")
+main("$7775873.86")
+
+console.log("$27125699.71")
+main("$27125699.71")
+
+console.log("$847845906.27")
+main("$847845906.27")
+
+console.log("$1564985398.88")
+main("$1564985398.88")
+
+console.log("$1")
+main("$1")
+
+console.log("$156")
+main("$156")
